@@ -1,0 +1,36 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-21 16:39:30
+ * @LastEditTime: 2020-07-21 20:02:16
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /promise/myPromise/index.html
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./MyPromise.js"></script>
+    <script>
+        new MyPromise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('FULFILLED')
+                reject('fali')
+                resolve('FULFILLED22')
+            }, 1000)
+        }).then(res => {
+            return new MyPromise((resolve, reject) => {
+                resolve(5)
+                reject(7)
+                resolve(6)
+            })
+        }).then(res => {
+            console.log('res', res)
+        })
+    </script>
+</body>
+</html>
